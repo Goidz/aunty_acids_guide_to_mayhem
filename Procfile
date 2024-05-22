@@ -1,0 +1,1 @@
+web: gunicorn aagm_project.wsgi
