@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wpj7fpt=!87eq#n=v@5kl((3fq%+f(6-%9j@ehd2lti7u_jb-a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-goidz-auntyacidsguidet-r6k6hgve0b8.ws-eu114.gitpod.io', '.herokuapp.com']
 
@@ -91,6 +91,8 @@ WSGI_APPLICATION = 'aagm_project.wsgi.application'
 DATABASES = {
     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
 # Password validation
