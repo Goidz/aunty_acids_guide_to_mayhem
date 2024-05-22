@@ -1,1 +1,1 @@
-web: gunicorn aunty_acids_guide_to_mayhem.wsgi
+web: gunicorn aagm_project.wsgi
