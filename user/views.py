@@ -3,5 +3,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def home(request):
+def user(request):
     return HttpResponse("This is the user profile page")

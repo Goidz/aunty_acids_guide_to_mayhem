@@ -16,11 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from user_profile import views as user
-from event import views as event_info
+
 
 urlpatterns = [
-    path('', user.home, name = 'user'),
-    path('event', event_info.event, name = 'event'),
-    path('admin/', admin.site.urls),
+    path("event/", include("event.urls"), name= "event-urls"),
+    path("user/", include("user.urls"), name= "user-urls"),
+    path("admin/", admin.site.urls),
 ]
