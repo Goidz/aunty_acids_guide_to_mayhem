@@ -1,3 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
+<div class="row mb-3">
+    <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
+    </div>
+</div>
+
+<!--
+<form id="commentForm" method="post" style="margin-top: 1.3em;">
+    {{ comment_form | crispy }}
+    {% csrf_token %}
+    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+    
+</form>
+-->
+
+
+{%endblock%}

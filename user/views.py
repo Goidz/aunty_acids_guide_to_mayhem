@@ -1,4 +1,4 @@
-from django.shortcuts import loader
+from django.shortcuts import loader, render
 from django.http import HttpResponse
 from django.views import generic
 from event.models import Event_listing
