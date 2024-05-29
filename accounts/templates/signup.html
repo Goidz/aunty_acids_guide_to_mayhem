@@ -1,5 +1,6 @@
-{% extends "base.html" %}
+{% extends "user.html" %}
 {% block content %}
+{% load crispy_forms_tags %}
 
 <div class = "card mb-6">
     <div class="row">
@@ -9,7 +10,6 @@
           <p class="card-text">
             <form method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
                 <button class="btn btn-info" type="submit">Sign Up!</button>
             </form>
           </p>
