@@ -5,9 +5,13 @@ from .forms import EventListingForm
 
 def user(request):
     form = EventListingForm()
-    if request.method == "POST":
+    context = {"form":form}
+    return render(request, "user.html", context)
+
+"""
+if request.method == "POST":
         form = EventListingForm(request.POST)
         if form.is_valid():
             form.save()
-    context = {"form":form}
-    return render(request, "user.html", context)
+        context = {"form":form}
+"""          
