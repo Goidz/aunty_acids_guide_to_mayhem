@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-goidz-auntyacidsguidet-r6k6hgve0b8.ws-eu114.gitpod.io', '.herokuapp.com']
+ALLOWED_HOSTS = ['8000-goidz-auntyacidsguidet-wrlabs7gqb4.ws-eu114.gitpod.io', '.herokuapp.com']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_summernote',
     'cloudinary',
+    "widget_tweaks",
     'user',
     'event',
     'accounts',

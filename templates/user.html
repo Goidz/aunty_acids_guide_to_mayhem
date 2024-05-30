@@ -1,17 +1,25 @@
 {% extends "base.html" %}
-{% load static %}
+{% load widget_tweaks %}
+
+
 {% block content %}
 
 <div class="text-center">
   <form class="form-signin">
     {% csrf_token %}
-    <h2>FORM</h2>
+    <h1 class="h3 mb-3 font-weight-normal">Member Form</h1>
+    {% render_field form.event_title placeholder="Event Title" class+="form-control" %}
+    {% render_field form.organizer placeholder="Organizer" class+="form-control" %}
+    {% render_field form.city placeholder="City" class+="form-control" %}
+    {% render_field form.date placeholder="Date" class+="form-control" %}
+    {% render_field form.venue placeholder="Venue" class+="form-control" %}
+    {% render_field form.bio placeholder="Bio" class+="form-control" %}
+    {% render_field form.status placeholder="Status" class+="form-control" %}
     
-
+    <button class="btn btn-lg btn-primary btn-block mt-5" type="submit">Add Event!</button>
   </form>
 </div>
-
-
+{%endblock%}
 <!--
 <div>
   <form action="" method="post">
@@ -21,4 +29,4 @@
   <input type="submit">
 </div>
 -->
-{%endblock%}
+
