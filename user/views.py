@@ -8,10 +8,3 @@ def user(request):
     context = {"form":form}
     return render(request, "user.html", context)
 
-"""
-if request.method == "POST":
-        form = EventListingForm(request.POST)
-        if form.is_valid():
-            form.save()
-        context = {"form":form}
-"""          

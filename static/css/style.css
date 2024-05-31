@@ -5,19 +5,25 @@
 }
 
 body{
+    font-family: Metal Mania, sans-serif;
+    letter-spacing: 1px;
     display: flex;
-    flex: 1 0 auto;
-    width: 100%;
-    min-height: 100vh;
-    margin: 0;
-    background-color: rgb(118, 140, 150);
     flex-direction: column;
+    min-height: 100vh;
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: rgb(118, 140, 150);
+}
+
+.navbar-nav{
+    font-family: Major Mono Display, sans-serif;
+    font-size: large;
 }
 
 .navbar {
     padding-left: 3%;
     padding-right: 2%;
-    font-size: large;
+    font-size: small;
 }
 
 .navbar-brand{
@@ -25,14 +31,16 @@ body{
 }
 
 .hero-img {
-    width:100%;
-    height:100vh;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
     background: url(https://res.cloudinary.com/dsjcgnvih/image/upload/v1716913493/tcujpkqsgiyvyg7sqnje.png);
-    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
-    background-size:cover;
     background-attachment: fixed;
+    position: relative;
   }
+
   .hero-img h4 {
     color:rgb(235, 0, 0);
     font-size: 100px;

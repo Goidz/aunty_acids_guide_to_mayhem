@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
-
+<!--Read about widget_tweaks here:
+https://www.geeksforgeeks.org/how-to-customize-django-forms-using-django-widget-tweaks/-->
 
 {% block content %}
 
 <div class="text-center">
   <form class="form-signin">
     {% csrf_token %}
-    <h1 class="h3 mb-3 font-weight-normal">Member Form</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Add an Event</h1>
     {% render_field form.event_title placeholder="Event Title" class+="form-control" %}
     {% render_field form.organizer placeholder="Organizer" class+="form-control" %}
     {% render_field form.city placeholder="City" class+="form-control" %}
@@ -20,13 +21,5 @@
   </form>
 </div>
 {%endblock%}
-<!--
-<div>
-  <form action="" method="post">
-    {% csrf_token %}
-    {{form}}
-  </form>
-  <input type="submit">
-</div>
--->
+
 
