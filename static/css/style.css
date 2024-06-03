@@ -7,31 +7,26 @@
 body{
     font-family: Major Mono Display, sans-serif;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow: auto;
-    overflow-x: hidden;
+    justify-content: center;
+    min-height: 100%;
+    min-width: 100%;
     background-color: rgb(118, 140, 150);
 }
 
-
-
 #navbarNavDropdown{
     display: flex;
-    display: inline-block;
-    justify-content: end;
-    flex-grow: 1;
+    justify-content: start;
 }
 
 .navbar {
-    padding-left: 3%;
-    padding-right: 2%;
-    font-size: small;
+  padding-left: 7px;
+  font-size: 0.7rem;
 }
 
 .navbar-brand{
-    font-size: large;
-    display: inline-block;
+  
+    font-size: 1rem;
+    
     width: 100%;
 }
 
@@ -46,9 +41,42 @@ body{
     position: relative;
   }
 
-  .hero-img h4 {
-    color:rgb(235, 0, 0);
-    font-size: 100px;
-    text-align: center;
-    margin-top: 50px;
+#create_event{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 80px;
+}
+
+#create_event p label{
+  display: block;
+}
+
+#create_event input, #create_event textarea, #create_event select {
+  width: 100%;
+  padding: 15px;
+}
+
+#social-media {
+  text-align: center;
+  min-height: 20px;
+  margin: 0;
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  
+}
+
+#social-media i {
+color: #c1c1be;
+}
+
+#social-media a {
+    color: #fff800;
+}
+
+@media screen and (min-width: 920px) and (max-width: 1940px){
+  .hero-img{
+  background-size: contain;
   }
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <form method="POST" action="." id="create_event">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit"> Add Event</button>
+    </form>
+{% endblock %}
