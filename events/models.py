@@ -9,7 +9,7 @@ class City(models.Model):
 
     class Meta:
         """To display the cities by created_on in descending order"""
-        ordering = ["-created_on"]
+        ordering = ["name", "-created_on"]
 
 
     def __str__(self):
@@ -55,6 +55,7 @@ class Event(models.Model):
     created_on = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="events", blank=True, null=True)
+    my_link = models.URLField("Add a Website")
 
     def __str__(self):
         return f"{self.title} @ {self.title} on {self.venue.name}"

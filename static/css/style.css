@@ -36,6 +36,9 @@ nav{
   padding-left: 7px;
   font-size: 0.7rem;
 }
+.navbar-nav, a{
+  padding: 0.2rem 0rem !important;
+}
 
 #navbarNavDropdown a{
   color: rgb(104, 218, 222)!important;
@@ -66,7 +69,52 @@ nav{
 
 /* Search Field  ------------------------------------------------------------------>>>> */
 
+.search{
+  margin-bottom:0;
+  z-index: 2;
+  position: absolute;
+}
 
+.search input{
+  display: flex;
+  justify-content: center;
+  display: block;
+  box-sizing: border-box;
+  
+  background-color:rgb(104, 218, 222, 0.6);
+  color: rgb(104, 218, 222,);
+  border-radius: 0 3px 3px 0;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: rgb(104, 218, 222);
+    }
+    &:active {
+      box-shadow: 0px 0px 12px 0px rgb(104, 218, 222);
+    }
+    &:focus {
+      outline: 0;
+  }
+}
+
+.search button{
+  box-sizing: border-box;
+  display: block;
+  width: 50%;
+  position: relative;
+  background-color:rgb(104, 218, 222, 0.4);
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 0 3px 3px 0;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: rgb(104, 218, 222);
+    }
+    &:active {
+      box-shadow: 0px 0px 12px 0px rgb(104, 218, 222);
+    }
+    &:focus {
+      outline: 0;
+  }
+}
 
 /* Social Media  ------------------------------------------------------------------>>>> */
 
@@ -117,10 +165,11 @@ footer{
   color: rgb(104, 218, 222);
 }
 
-#create_event input, #create_event textarea, #create_event select {
+#create_event input, #create_event textarea, #create_event select  {
   width: 100%;
   border-radius: 2%;
-  background-color: rgb(251, 224, 190);
+  background-color: darkslategray;
+  color: rgb(251, 224, 190);
   padding: 15px;
 }
 
@@ -148,6 +197,8 @@ footer{
 #log_out_btn{
   color: rgb(104, 218, 222);
   font-size: 1.5em;
+  position: relative;
+  z-index: 2;
 }
 
 #logout_p{
@@ -171,12 +222,22 @@ footer{
 #login-btn{
   color: rgb(104, 218, 222);
   font-size: 1.5em;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 3rem;
 }
 
-#login_page, p{
-  font-size: 1.3em;
+#login_page p{
+  font-size: 1.5em;
+  color: rgb(104, 218, 222);
+}
+
+#login_page input{
+  width: 100%;
+  border-radius: 3%;
+  padding: 5px;
+  background-color: darkslategray;
   color: rgb(251, 224, 190);
-  
 }
 
 /* signup page  ------------------------------------------------------------------>>>> */
@@ -186,8 +247,26 @@ footer{
   width: 80%;
   margin-left: 10%;
   margin-top: 10px;
+  margin-bottom: 3rem;
   display: block;
-  
+  position: relative;
+  z-index: 2;
+}
+
+#signup_page p{
+  color: rgb(104, 218, 222); 
+}
+
+#signup_page input{
+  width: 100%;
+  border-radius: 3%;
+  padding: 5px;
+  background-color: darkslategray;
+  color: rgb(251, 224, 190);
+}
+
+#signup_page button{
+  color: rgb(104, 218, 222);
 }
 
 /* Media Queries ------------------------------------------------------------------>>>> */

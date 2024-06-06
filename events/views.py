@@ -16,8 +16,8 @@ def create_event(request):
             add_event_form = form.save(commit=False)
             add_event_form.author = request.user
             add_event_form.save()
-            messages.success(request, "Hooray! Your event was added successfully!")
-            return redirect("home")
+            messages.SUCCESS(request, "Hooray! Your event was added successfully!")
+            return redirect("events")
         else:
             messages.error(
                 request, 'Invalid, incorrect info.')

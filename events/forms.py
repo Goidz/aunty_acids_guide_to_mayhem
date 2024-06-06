@@ -12,7 +12,7 @@ class EventForm(forms.ModelForm):
     class Meta:
         """Get Event model, choose fields to display"""
         model = Event
-        fields = ("title", "details", "city", "venue", "genres", "date")
+        fields = ("title", "details", "city", "venue", "genres", "date", "my_link")
         widgets = {
             # Found assistance on date inputs from: https://stackoverflow.com/questions/59035021/django-dateinput-widget-not-working-in-modelform
             "date": forms.DateInput(attrs={'class':'form-control', 'type':'date'})
