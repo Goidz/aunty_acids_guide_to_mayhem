@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from events import views
+from events.views import create_event
 
 
 urlpatterns = [
@@ -24,6 +25,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path("", (views.home), name= "home"),
     path("events/", include("events.urls"), name= "event-urls"),
+    path("events", (views.create_event), name= "event_create"),
     path("user/", include("user.urls"), name= "user-urls"),
     path("summernote", include("django_summernote.urls")),    
 ]

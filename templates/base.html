@@ -24,31 +24,30 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title%}Aunty Acids Guide to Mayhem{% endblock %}</title>
 </head>
-<body class="d-flex flex-column h-100 main-bg">
-    <div >
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'home' %}">Aunty Acids Guide to Mayhem</a>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    {% if user.is_authenticated %}
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'event_create' %}">Add Event!<span class="sr-only"></span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'account_logout' %}">LogOut<span class="sr-only"></span></a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'account_login' %}">Add Event!(Sign In)<span class="sr-only"></span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'account_signup' %}">Sign Up!<span class="sr-only"></span></a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
-    </div>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Aunty Acids Guide to Mayhem</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'event_create' %}">Add Event!<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'account_logout' %}">LogOut<span class="sr-only"></span></a>
+                    </li>
+                {% else %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'account_login' %}">Add Event!(Sign In)<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'account_signup' %}">Sign Up!<span class="sr-only"></span></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
     <main>
         {% block content %}
         {% endblock content %}
@@ -67,6 +66,10 @@
                 <li>
                     <a href="https://open.spotify.com/" target="_blank" rel="noopener"
                         aria-label="visit spotify home page (Opens in new tab)"><i class="fa-brands fa-spotify"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.google.com/maps/@51.1758057,10.4541194,6z?entry=ttu/" target="_blank" rel="noopener"
+                        aria-label="visit google maps home page (Opens in new tab)"><i class="fa-solid fa-map-location-dot"></i></a>
                 </li>
             </ul>
     </footer>

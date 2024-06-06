@@ -46,7 +46,7 @@ class Venue(models.Model):
 
 class Event(models.Model):
     """Model for Event"""
-    title = models.TextField(max_length=300)
+    title = models.TextField(max_length=100, unique=True)
     details = models.TextField(max_length=300)
     city = models.ForeignKey(City, related_name="city", on_delete=models.DO_NOTHING)
     venue = models.ForeignKey(Venue, related_name="venue", on_delete=models.DO_NOTHING)
@@ -54,7 +54,8 @@ class Event(models.Model):
     date = models.DateField()
     created_on = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="event")
+        User, on_delete=models.CASCADE, related_name="events", blank=True, null=True)
 
     def __str__(self):
         return f"{self.title} @ {self.title} on {self.venue.name}"
+        

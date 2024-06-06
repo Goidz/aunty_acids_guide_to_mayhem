@@ -7,15 +7,29 @@
 body{
     font-family: Major Mono Display, sans-serif;
     display: flex;
-    justify-content: center;
-    min-height: 100%;
-    min-width: 100%;
-    background-color: rgb(118, 140, 150);
+    flex-direction: column;
+    position: relative;
+    color: rgb(104, 218, 222);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: rgb(20, 45, 56);  
+}
+
+/* Nav Section  ------------------------------------------------------------------>>>> */
+
+nav{
+  margin-bottom: 0;
+  overflow: hidden;
+  
 }
 
 #navbarNavDropdown{
-    display: flex;
-    justify-content: start;
+  display: flex;
+  justify-content: end;
+  min-width: 95%;
+  margin-left: 2.5%;
+  margin-top: 10px;
+  display: block;
 }
 
 .navbar {
@@ -23,38 +37,38 @@ body{
   font-size: 0.7rem;
 }
 
-.navbar-brand{
-  
-    font-size: 1rem;
-    
-    width: 100%;
+#navbarNavDropdown a{
+  color: rgb(104, 218, 222)!important;
+  letter-spacing: 1px;
 }
+
+.navbar-brand{
+  color: rgb(104, 218, 222)!important;
+  display: flex;
+  justify-content: center;
+  font-size: 1.1rem;
+  min-width: 100%;
+  text-align: center;
+}
+
+/* Hero img  ------------------------------------------------------------------>>>> */
 
 .hero-img {
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
     background: url(https://res.cloudinary.com/dsjcgnvih/image/upload/v1716913493/tcujpkqsgiyvyg7sqnje.png);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     position: relative;
-  }
-
-#create_event{
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 80px;
+    z-index: 0;
 }
 
-#create_event p label{
-  display: block;
-}
+/* Search Field  ------------------------------------------------------------------>>>> */
 
-#create_event input, #create_event textarea, #create_event select {
-  width: 100%;
-  padding: 15px;
-}
+
+
+/* Social Media  ------------------------------------------------------------------>>>> */
 
 #social-media {
   text-align: center;
@@ -64,19 +78,180 @@ body{
   display: flex;
   justify-content: space-evenly;
   list-style-type: none;
-  
 }
 
 #social-media i {
-color: #c1c1be;
+  color: rgb(251, 224, 190);
+  font-size: 1.3rem;
+  margin: 0.5em;
 }
 
-#social-media a {
-    color: #fff800;
+/* Footer  ------------------------------------------------------------------>>>> */
+
+footer{
+  position: absolute;
+  margin-top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Create event form page  ------------------------------------------------------------------>>>> */
+
+#event-form-h4{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1em;
+  color: rgb(251, 224, 190);
+}
+
+#create_event{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 40px;
+  display: block;
+}
+
+#create_event p label{
+  display: block;
+  color: rgb(104, 218, 222);
+}
+
+#create_event input, #create_event textarea, #create_event select {
+  width: 100%;
+  border-radius: 2%;
+  background-color: rgb(251, 224, 190);
+  padding: 15px;
+}
+
+#create_event button{
+  color: rgb(104, 218, 222);
+  background-color: darkslategray;
+  margin-top: 1.3rem;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* lougout page  ------------------------------------------------------------------>>>> */
+
+#logout_page{
+  overflow-y: hidden;
+  margin-bottom: 0;
+}
+
+#logout_page, #social-media{
+  margin-bottom: 0;
+  margin-top: 5rem;
+}
+
+#log_out_btn{
+  color: rgb(104, 218, 222);
+  font-size: 1.5em;
+}
+
+#logout_p{
+  font-size: 1.8em;
+  color: rgb(251, 224, 190);
+}
+
+/* login page  ------------------------------------------------------------------>>>> */
+
+.login{
+  font-size: 0.6em;
+}
+
+#login_page{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10px;
+  display: block;
+}
+
+#login-btn{
+  color: rgb(104, 218, 222);
+  font-size: 1.5em;
+}
+
+#login_page, p{
+  font-size: 1.3em;
+  color: rgb(251, 224, 190);
+  
+}
+
+/* signup page  ------------------------------------------------------------------>>>> */
+
+#signup_page{
+  font-size: 0.8em;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10px;
+  display: block;
+  
+}
+
+/* Media Queries ------------------------------------------------------------------>>>> */
+
+@media screen and (min-width: 320px) and (max-width: 360px){
+  .navbar-brand{
+    font-size: 1.35em;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .navbar-brand{
+    font-size: 1.8rem;
+  }
+
+  #navbarNavDropdown{
+    font-size: 1.3rem;
+  }
 }
 
 @media screen and (min-width: 920px) and (max-width: 1940px){
   .hero-img{
   background-size: contain;
+  }
+
+  .navbar-brand{
+    font-size: 3em;
+    padding-left: 10px;
+  }
+
+  #navbarNavDropdown {
+    padding-right: 10px;
+    font-size: 1.6em;
+  }
+
+  .form-h h4{
+    font-size: 40px;
+    margin-top: 40px;
+  }
+
+  #create_event  {
+  font-size: 2rem;
+  margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1600px){
+
+  .navbar-brand{
+    padding-left: 15px;
+  }
+
+  .navbar {
+    padding-right: 15px;
+    font-size: 1.3em;
+  }
+
+  #social-media i {
+    font-size: 2em;
+    margin: 0.5em;
+  }
+
+  .form-h h4{
+    font-size: 40px;
+    margin-top: 60px;
   }
 }

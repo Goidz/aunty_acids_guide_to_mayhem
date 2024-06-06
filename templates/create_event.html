@@ -1,10 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Add Event!" %}{% endblock %}
 
 {% block content %}
-    <form method="POST" action="." id="create_event">
+<div id="event-form-h4">
+<h4>Please fill in the form below to add your event.</h4>
+</div>
+    <form method="post" action="{% url 'event_create' %}" id="create_event">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit"> Add Event</button>
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button  class="btn btn-outline-light" type="submit">{% trans "Add Event!" %}</button>
     </form>
 {% endblock %}
+

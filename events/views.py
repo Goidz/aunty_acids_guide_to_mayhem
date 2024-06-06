@@ -11,11 +11,11 @@ def home(request):
 
 def create_event(request):
     if request.method == "POST":
-        form = EventForm(data=request.POST)
+        form = EventForm(request.POST)
         if form.is_valid():
-            event_add = form.save(commit=False)
-            event_add.user = request.user
-            event_add.save()
+            add_event_form = form.save(commit=False)
+            add_event_form.author = request.user
+            add_event_form.save()
             messages.success(request, "Hooray! Your event was added successfully!")
             return redirect("home")
         else:
@@ -24,5 +24,3 @@ def create_event(request):
     form = EventForm()
     context = {"form": form}
     return render(request, "create_event.html", context)
-
-
