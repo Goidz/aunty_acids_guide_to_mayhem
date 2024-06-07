@@ -32,17 +32,17 @@
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'event_create' %}">Add Event!<span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'event_create' %}"><u>Add Event</u><span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'account_logout' %}">LogOut<span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'account_logout' %}"><u>LogOut</u><span class="sr-only"></span></a>
                     </li>
                 {% else %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'account_login' %}">Add Event!(Sign In)<span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'account_login' %}"><u>Add Event!(Sign In)</u><span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Sign Up!<span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'account_signup' %}"><u>Sign Up!</u><span class="sr-only"></span></a>
                     </li>
                 {% endif %}
             </ul>

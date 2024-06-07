@@ -33,7 +33,6 @@ nav{
 }
 
 .navbar {
-  padding-left: 7px;
   font-size: 0.7rem;
 }
 .navbar-nav, a{
@@ -47,8 +46,12 @@ nav{
 
 .navbar-brand{
   color: rgb(104, 218, 222)!important;
+  border-style: outset;
+  border-color: rgb(104, 218, 222);
   display: flex;
   justify-content: center;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
   font-size: 1.1rem;
   min-width: 100%;
   text-align: center;
@@ -59,12 +62,8 @@ nav{
 .container{
   z-index: 3;
   background-color: rgb(20, 45, 56, 0.5);
-  color: rgb(251, 224, 190);;
-  position: absolute;
-  height: 80%;
-  width: 70%;
-  margin-left: 15%;
-  margin-top: 2.5em;
+  color: rgb(251, 224, 190);
+  
   border: 2px solid rgb(251, 224, 190);
   overflow-x: hidden;
 }
@@ -131,34 +130,6 @@ nav{
   }
 }
 
-/* Social Media  ------------------------------------------------------------------>>>> */
-
-#social-media {
-  text-align: center;
-  min-height: 20px;
-  margin: 0;
-  padding: 5px;
-  display: flex;
-  justify-content: space-evenly;
-  list-style-type: none;
-}
-
-#social-media i {
-  color: rgb(251, 224, 190);
-  font-size: 1.3rem;
-  margin: 0.5em;
-}
-
-/* Footer  ------------------------------------------------------------------>>>> */
-
-footer{
-  position: absolute;
-  margin-top: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 1;
-}
-
 /* Create event form page  ------------------------------------------------------------------>>>> */
 
 #event-form-h4{
@@ -197,27 +168,70 @@ footer{
   z-index: 2;
 }
 
+/* Social Media  ------------------------------------------------------------------>>>> */
+
+#social-media {
+  text-align: center;
+  min-height: 20px;
+  min-width: 100%;
+  margin: 0;
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  position: absolute;
+}
+
+#social-media i {
+  color: rgb(104, 218, 222);
+  font-size: 1.3rem;
+  margin: 0.5em;
+}
+
+/* Footer  ------------------------------------------------------------------>>>> */
+
+footer{
+  position: absolute;
+  margin-top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 /* lougout page  ------------------------------------------------------------------>>>> */
+
+#logout_page, .container{
+  margin-bottom: 0;
+  box-sizing: border-box;
+  height: 50%;
+  margin-top: 35%;
+}
 
 #logout_page{
   overflow-y: hidden;
   margin-bottom: 0;
+  min-height: 60%;
+      position: relative;
+      overflow-y: hidden;
+  
 }
 
-#logout_page, #social-media{
-  margin-bottom: 0;
-  margin-top: 5rem;
+#logout_page #social-media{
+  position: absolute;
+  z-index: 2;
+  min-width: 100%;
+  overflow-y: hidden;
 }
 
 #log_out_btn{
   color: rgb(104, 218, 222);
-  font-size: 1.5em;
+  font-size: 1rem;
   position: relative;
   z-index: 2;
 }
 
 #logout_p{
-  font-size: 1.8em;
+  font-size: 1.3rem;
   color: rgb(251, 224, 190);
 }
 
@@ -227,11 +241,13 @@ footer{
   font-size: 0.6em;
 }
 
-#login_page{
+#login_page, .container{
   width: 80%;
   margin-left: 10%;
   margin-top: 10px;
   display: block;
+  position: relative;
+  overflow-y: hidden;
 }
 
 #login-btn{
@@ -239,10 +255,11 @@ footer{
   font-size: 1.5em;
   position: relative;
   z-index: 2;
-  margin-bottom: 3rem;
+  
 }
 
 #login_page p{
+  margin-top: 0;
   font-size: 1.5em;
   color: rgb(104, 218, 222);
 }
@@ -268,6 +285,10 @@ footer{
   z-index: 2;
 }
 
+#signup_page, .container{
+  margin-top: 25%;
+}
+
 #signup_page p{
   color: rgb(104, 218, 222); 
 }
@@ -286,19 +307,54 @@ footer{
 
 /* Media Queries ------------------------------------------------------------------>>>> */
 
-@media screen and (min-width: 320px) and (max-width: 360px){
+@media screen and (min-width: 320px) and (max-width: 375px){
   .navbar-brand{
     font-size: 1.35em;
   }
+  
+  #signup_page, .container{
+    margin-top: 15%;
+    margin-bottom: 25%;
+  }
+
+  #login_page, .container{
+    height: 60%;
+    margin-top: 10%;
+  }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 390px) and (max-width: 440px){
+  #login_page, .container{
+    height: 60%;
+    margin-top: 15%;
+  }
+}
+
+@media screen and (min-width: 540px) and (max-width: 760px){
+  #login_page, .container{
+    width: 80%;
+    font-size: 1.3rem;
+    position: relative;
+    display: inline-block;
+    margin-top: 5%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
   .navbar-brand{
     font-size: 1.8rem;
   }
 
   #navbarNavDropdown{
     font-size: 1.3rem;
+  }
+
+  #login_page, .container{
+    width: 80%;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+    margin-top: 10%;
   }
 }
 
@@ -347,5 +403,36 @@ footer{
   .form-h h4{
     font-size: 40px;
     margin-top: 60px;
+  }
+
+  #login_page, .container{
+    width: 80%;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+    margin-left: 15%;
+    margin-top: 8%;
+  }
+
+  #signup_page, .container{
+    width: 80%;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+    margin-left: 15%;
+    margin-top: 5%;
+  }
+
+  #create_event button{
+    font-size: 2.5rem;
+  }
+
+  #event-form-h4 h4{
+    margin-top: 5%;
+    font-size: 3rem;
+  }
+
+  #create_event #id_date{
+    font-size: 2rem;
   }
 }
