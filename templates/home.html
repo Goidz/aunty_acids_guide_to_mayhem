@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 
+{% block title %}List of events{% endblock %}
+
 {% block content %}
+<section class="hero-img">
+    <div class="container">
+        {% for events in event %}
+            <h2>{{ events.title }}</h2>
+            <p>Brought to you by: {{ events.author }}</p>
+            <hr>
+            {{ events.content|truncatewords:50|linebreaks }}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+
+<!--
 <div class="container">
     <form class="search" action="">
         <input type="search" placeholder="Search here..." required>
@@ -9,7 +25,4 @@
         <button type="submit">Search</button>
     </form>
 </div>
-<section class="hero-img"></section>
-</section>
-
-{% endblock %}
+-->

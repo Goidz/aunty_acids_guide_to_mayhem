@@ -54,6 +54,21 @@ nav{
   text-align: center;
 }
 
+/* All Events  ------------------------------------------------------------------>>>> */
+
+.container{
+  z-index: 3;
+  background-color: rgb(20, 45, 56, 0.5);
+  color: rgb(251, 224, 190);;
+  position: absolute;
+  height: 80%;
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 2.5em;
+  border: 2px solid rgb(251, 224, 190);
+  overflow-x: hidden;
+}
+
 /* Hero img  ------------------------------------------------------------------>>>> */
 
 .hero-img {

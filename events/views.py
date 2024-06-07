@@ -6,8 +6,8 @@ from .forms import EventForm
 from .models import Event
 
 
-def home(request):
-    return render(request, "home.html")
+
+
 
 def create_event(request):
     if request.method == "POST":
@@ -24,3 +24,10 @@ def create_event(request):
     form = EventForm()
     context = {"form": form}
     return render(request, "create_event.html", context)
+
+
+def event_list(request):
+    event = Event.objects.all()
+    template = "home.html"
+    context = {"event": event}
+    return render(request, template, context)

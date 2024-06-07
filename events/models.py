@@ -43,9 +43,12 @@ class Venue(models.Model):
     def __str__(self):
         return f"{self.name}"
 
-
-class Event(models.Model):
     """Model for Event"""
+class Event(models.Model):
+    #STATUS_CHOICES = (
+    #   ("draft", "Draft"),
+    #    ("published", "Add Event!"),
+    #)
     title = models.TextField(max_length=100, unique=True)
     details = models.TextField(max_length=300)
     city = models.ForeignKey(City, related_name="city", on_delete=models.DO_NOTHING)
@@ -56,6 +59,8 @@ class Event(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="events", blank=True, null=True)
     my_link = models.URLField("Add a Website")
+    #status = models.CharField(max_length=9, choices=STATUS_CHOICES, default="draft")
+
 
     def __str__(self):
         return f"{self.title} @ {self.title} on {self.venue.name}"

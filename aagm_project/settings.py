@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-goidz-auntyacidsguidet-wrlabs7gqb4.ws-eu114.gitpod.io', '.herokuapp.com']
 
@@ -42,16 +42,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
-    'django_summernote',
-    'cloudinary',
-    "widget_tweaks",
-    'user',
-    'events',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # 'accounts',
+    'django_summernote',
+
+    # 3rd party
+    'crispy_forms',
+    'cloudinary',
+    "widget_tweaks",
+
+    #User
+    'user',
+    'events',
+    
 ]
 
 MIDDLEWARE = [
