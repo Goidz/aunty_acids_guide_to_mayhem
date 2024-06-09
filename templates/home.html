@@ -3,26 +3,34 @@
 {% block title %}List of events{% endblock %}
 
 {% block content %}
-<section class="hero-img">
-    <div class="container">
-        {% for events in event %}
-            <h2>{{ events.title }}</h2>
-            <p>Brought to you by: {{ events.author }}</p>
+    <section class="hero-img">
+        <form class="search" action="." method="POST">
+            <select name="genre">
+                <option value="-1"> Filter by genre </option>
+                {% for genre in genre_list %}
+                    <option value="{{genre.id}}">{{genre.name}}</option>
+                {%endfor%}
+            </select>
+            <select name="city">
+                <option value="-1"> Filter by city </option>
+                {% for city in city_list %}
+                    <option value="{{city.id}}">{{city.name}}</option>
+                {%endfor%}
+            </select>
+            {% csrf_token %}
+            <button type="submit">Search</button>
+        </form>
+        <div class="container">
+            <h3>{{searched_by}}</h3>
             <hr>
-            {{ events.content|truncatewords:50|linebreaks }}
-        {% endfor %}
-    </div>
-</section>
+            {% for event in event_list %}
+                <h2>{{ event.title }}</h2>
+                <p>Brought to you by: {{ event.author }}</p>
+                <hr>
+                {{ event.content|truncatewords:50|linebreaks }}
+                {% empty %}
+                <h4>No events found for search</h4>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}
-
-
-<!--
-<div class="container">
-    <form class="search" action="">
-        <input type="search" placeholder="Search here..." required>
-        <input type="search" placeholder="Search here..." required>
-        <input type="search" placeholder="Search here..." required>
-        <button type="submit">Search</button>
-    </form>
-</div>
--->
