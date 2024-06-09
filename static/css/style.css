@@ -56,6 +56,13 @@ nav{
   min-width: 100%;
   text-align: center;
 }
+/*
+.navbar-brand, border{
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+  */
 
 /* All Events  ------------------------------------------------------------------>>>> */
 
