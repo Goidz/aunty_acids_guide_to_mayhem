@@ -5,10 +5,11 @@
 {% block head_title %}{% trans "Add Event!" %}{% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <div id="event-form-h4">
 <h4>Please fill in the form below to add your event.</h4>
 </div>
-    <form method="post" action="{% url 'event_create' %}" id="create_event">
+    <form class="create_event" method="post" action="{% url 'event_create' %}" id="create_event">
         {% csrf_token %}
         {{form.as_p}}
         {% if redirect_field_value %}
@@ -16,5 +17,5 @@
         {% endif %}
         <button  class="btn btn-outline-light" type="submit">{% trans "Add Event!" %}</button>
     </form>
+{% endif %}
 {% endblock %}
-

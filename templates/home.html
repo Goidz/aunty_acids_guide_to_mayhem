@@ -4,23 +4,24 @@
 
 {% block content %}
     <section class="hero-img">
-        <form class="search" action="." method="POST">
-            <select name="genre">
-                <option value="-1"> Filter by genre </option>
-                {% for genre in genre_list %}
-                    <option value="{{genre.id}}">{{genre.name}}</option>
-                {%endfor%}
-            </select>
-            <select name="city">
-                <option value="-1"> Filter by city </option>
-                {% for city in city_list %}
-                    <option value="{{city.id}}">{{city.name}}</option>
-                {%endfor%}
-            </select>
-            {% csrf_token %}
-            <button type="submit">Search</button>
-        </form>
-        <div class="container">
+            <!--Read about option element here: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option-->
+            <form class="search" action="." method="POST">
+                    <select name="genre" id="search_genre">
+                        <option value="-1"> Filter by genre </option>
+                        {% for genre in genre_list %}
+                            <option value="{{genre.id}}">{{genre.name}}</option>
+                        {%endfor%}
+                    </select>
+                    <select name="city" id="search_city">
+                        <option value="-1"> Filter by city </option>
+                        {% for city in city_list %}
+                            <option value="{{city.id}}">{{city.name}}</option>
+                        {%endfor%}
+                    </select>
+                    {% csrf_token %}
+                    <button id="search_button" type="submit">Search</button>
+            </form>
+        <div class="container" id="main_event_info">
             <h3>{{searched_by}}</h3>
             <hr>
             {% for event in event_list %}
@@ -29,7 +30,7 @@
                 <hr>
                 {{ event.content|truncatewords:50|linebreaks }}
                 {% empty %}
-                <h4>No events found for search</h4>
+                <h4>No events found for your search</h4>
             {% endfor %}
         </div>
     </section>

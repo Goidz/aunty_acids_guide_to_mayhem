@@ -104,9 +104,9 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.gitpod.io/"
+    "https://*.gitpod.io/",
     "https://*.herokuapp.com",
-    "https://8000-goidz-auntyacidsguidet-wrlabs7gqb4.ws-eu114.gitpod.io/"
+    "https://8000-goidz-auntyacidsguidet-wrlabs7gqb4.ws-eu114.gitpod.io/",
 ]
 
 # Password validation
@@ -133,7 +133,6 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'event_create'
 LOGOUT_REDIRECT_URL = 'home'
-
 
 
 # Internationalization

@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.views import generic
+from django.views.generic import UpdateView, DetailView
 from django.contrib import messages
 from .forms import EventForm
 from .models import Event, Genre, City
 
-
+"""Creating an event"""
 def create_event(request):
     if request.method == "POST":
         form = EventForm(request.POST)
@@ -13,16 +14,20 @@ def create_event(request):
             add_event_form = form.save(commit=False)
             add_event_form.author = request.user
             add_event_form.save()
-            messages.SUCCESS(request, "Hooray! Your event was added successfully!")
+            messages.SUCCESS(request, "Hooray! Event was sent successfully!")
             return redirect("events")
         else:
             messages.error(
                 request, "Invalid, incorrect info.")
     form = EventForm()
     context = {"form": form}
+
     return render(request, "create_event.html", context)
 
 
+"""
+Retrieving and filtering for events.
+"""
 def event_list(request):
     event_list = Event.objects.all()
     searched_by = ""
@@ -42,3 +47,18 @@ def event_list(request):
     template = "home.html"
     context = {"event_list": event_list, "genre_list": genre_list, "city_list": city_list, "searched_by": searched_by}
     return render(request, template, context)
+
+
+"""
+Adding events to User Page.
+"""
+def user_events(request):
+    user_events = Event.objects.all()
+    template = "user.html"
+    context = {"user_events": user_events}
+    return render(request, template, context)
+
+
+class EventInfo(DetailView):
+    model = Event
+    template = "events_info.html"

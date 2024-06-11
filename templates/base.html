@@ -35,11 +35,17 @@
                         <a class="nav-link" href="{% url 'event_create' %}"><u>Add Event</u><span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'user_events' %}"><u>User</u><span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
                         <a class="nav-link" href="{% url 'account_logout' %}"><u>LogOut</u><span class="sr-only"></span></a>
                     </li>
                 {% else %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'account_login' %}"><u>Add Event!(Sign In)</u><span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'account_login' %}"><u>Add Event! (Sign In)</u><span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'account_login' %}"><u>User (Sign In)</u><span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'account_signup' %}"><u>Sign Up!</u><span class="sr-only"></span></a>
