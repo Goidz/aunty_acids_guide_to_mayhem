@@ -7,12 +7,26 @@
 body{
     font-family: Major Mono Display, sans-serif;
     display: flex;
+    flex-shrink: 0 !important;
     flex-direction: column;
     position: relative;
     color: rgb(104, 218, 222);
     min-height: 100vh;
     overflow-x: hidden;
     background-color: rgb(20, 45, 56);  
+}
+
+/* Hero img  ------------------------------------------------------------------>>>> */
+
+.hero-img {
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: url("../images/Aunty Acid.webp");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 0;
 }
 
 /* Nav Section  ------------------------------------------------------------------>>>> */
@@ -53,19 +67,6 @@ nav{
   font-size: 1.1rem;
   min-width: 100%;
   text-align: center;
-}
-
-/* Hero img  ------------------------------------------------------------------>>>> */
-
-.hero-img {
-  display: flex;
-  min-height: 100vh;
-  min-width: 100vw;
-  background: url(https://res.cloudinary.com/dsjcgnvih/image/upload/v1716913493/tcujpkqsgiyvyg7sqnje.png);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 0;
 }
 
 /* Search Field  ------------------------------------------------------------------>>>> */
