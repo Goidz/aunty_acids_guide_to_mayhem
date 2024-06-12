@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'cloudinary',
     "widget_tweaks",
 
-    #User
+    #Apps
     'user',
     'events',
     
