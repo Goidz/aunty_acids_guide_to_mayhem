@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body{ /* Google Fonts: https://fonts.google.com/?query=major+mono */
     font-family: Major Mono Display, sans-serif;
     display: flex;
     flex-shrink: 0 !important;
@@ -22,7 +22,7 @@ body{
   display: flex;
   min-height: 100vh;
   min-width: 100vw;
-  background: url("../images/Aunty Acid.webp");
+  background: url("../images/Aunty Acid.webp"); /* Image generated using: https://deepai.org/ */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -39,7 +39,7 @@ nav{
 
 #navbarNavDropdown{
   display: flex;
-  justify-content: end;
+  justify-content: space-evenly;
   min-width: 95%;
   margin-left: 2.5%;
   margin-top: 10px;
