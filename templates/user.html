@@ -5,7 +5,9 @@
   {% if user.is_authenticated %}
       {% if user.author == event.author %}
           {% for events in user_events %}
-            <h2><a href="{% url 'event_info' events.pk %}"></a>{{ events.title }}</h2>
+          <h2>
+            <a href="{% url 'event_detail' events.pk%}">{{ events.title }}</a>
+          </h2>
             <p>Brought to you by: {{ events.author }}</p>
             <hr>
             {{ events.content|truncatewords:50|linebreaks }}

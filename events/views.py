@@ -13,9 +13,9 @@ def create_event(request):
         if form.is_valid():
             add_event_form = form.save(commit=False)
             add_event_form.author = request.user
-            add_event_form.save()
-            messages.SUCCESS(request, "Hooray! Event was sent successfully!")
-            return redirect("events")
+            event = add_event_form.save()
+            messages.success(request, "Hooray! Event was sent successfully!")
+            return redirect("event_detail", event_detail.pk)
         else:
             messages.error(
                 request, "Invalid, incorrect info.")
@@ -53,7 +53,7 @@ def event_list(request):
 Adding events to User Page.
 """
 def user_events(request):
-    user_events = Event.objects.all()
+    user_events = Event.objects.filter(author=request.user)
     template = "user.html"
     context = {"user_events": user_events}
     return render(request, template, context)
@@ -61,4 +61,4 @@ def user_events(request):
 
 class EventInfo(DetailView):
     model = Event
-    template = "events_info.html"
+    template_name = "events_info.html"

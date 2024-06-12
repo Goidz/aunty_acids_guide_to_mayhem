@@ -113,6 +113,28 @@ nav{
   overflow-y: scroll;
 }
 
+/* Specific Event info  ---------------------------------------------------------------------->>>> */
+
+#spec_event_info{
+  font-size: 0.9em;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10px;
+  margin-bottom: 1px;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  overflow-y: scroll;
+}
+
+#spec_event_info h3{
+  font-size: 1.3em;
+}
+
+#spec_event_info h2{
+  font-size: 1.8em;
+}
+
 /* Create event form page  ------------------------------------------------------------------>>>> */
 
 #event-form-h4{
@@ -461,6 +483,16 @@ footer{
 
   #main_event_info h2{
     font-size: 4rem;
+  }
+
+  #spec_event_info{
+    width: 80%;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+    margin-left: 15%;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 
   #social-media i {

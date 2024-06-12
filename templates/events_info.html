@@ -1,7 +1,23 @@
+{% extends "base.html" %}
 
-
-<h2>{{ event.title }} HEEEELOOOOO</h2>
-<small>Brought to you by:{{ events.author }}</small><br>
-<hr>
-{{ events.content }}
-
+{% block content %}
+    <div id="spec_event_info" class="container">
+        <h2 style="color: rgb(244, 164, 27)">{{ event.title }}</h2>
+        <small>Brought to you by:{{ event.author }}</small><br>
+        <hr>
+        <h3 style="color: rgb(244, 164, 27)"> Date:</h3>
+        <p>{{ event.date }}</p>
+        <hr>
+        <h3 style="color: rgb(244, 164, 27)"> Venue:</h3><p>{{ event.venue }} -> {{ event.city }}</p>
+        <hr>
+        <h3 style="color: rgb(244, 164, 27)">details:</h3> - <p><small><small>{{ event.details }}</small></small></p>
+        <hr>
+        <h3 style="color: rgb(244, 164, 27)"> Genres:</h3>
+        {% for genre in event.genres.all %}
+        <small><small><p>{{genre.name}}</p></small></small>
+        {%endfor%}
+        <hr>
+        
+        
+    </div>
+{% endblock %}
