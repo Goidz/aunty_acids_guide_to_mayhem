@@ -5,5 +5,15 @@
 {% block head_title %}{% trans "Edit Event!" %}{% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
+<div id="event-form-h4">
+<h4>Please fill in the form below to edit your event.</h4>
+</div>
+    <form class="create_event" method="post" action="{% url 'event_update' object.pk %}" id="create_event">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button  class="btn btn-outline-light" type="submit">{% trans "Edit Event!" %}</button>
+        <a class="btn btn-outline-light" href="{%  url 'event_detail' event.pk  %}">Cancel</a>
+    </form>
+{% endif %}
 {% endblock %}

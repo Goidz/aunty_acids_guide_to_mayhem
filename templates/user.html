@@ -6,11 +6,13 @@
       {% if user.author == event.author %}
           {% for events in user_events %}
           <h2>
-            <a href="{% url 'event_detail' events.pk%}">{{ events.title }}</a>
+            <a style="color: rgb(244, 164, 27)" href="{% url 'event_detail' events.pk%}">{{ events.title }}</a>
           </h2>
             <p>Brought to you by: {{ events.author }}</p>
-            <hr>
             {{ events.content|truncatewords:50|linebreaks }}
+            <a style="color: rgb(74, 208, 12)" href="{% url 'event_update' events.pk %}">EDIT</a>
+            <a style="color: rgb(255, 8, 8)" href="{% url 'event_delete' events.pk %}">DELETE</a>
+            <hr>
             {% empty %}
           {% endfor %}
       {% endif %}

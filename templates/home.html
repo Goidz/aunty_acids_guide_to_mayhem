@@ -25,7 +25,7 @@
             <h3>{{searched_by}}</h3>
             <hr>
             {% for event in event_list %}
-                <h2><a href="{% url 'event_detail' event.pk%}">{{ event.title }}</a></h2>
+                <h2><a style="color: rgb(244, 164, 27)" href="{% url 'event_detail' event.pk%}">{{ event.title }}</a></h2>
                 <p>Brought to you by: {{ event.author }}</p>
                 <hr>
                 {{ event.content|truncatewords:50|linebreaks }}

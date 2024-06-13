@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 
@@ -60,4 +61,8 @@ class Event(models.Model):
 
     def __str__(self):
         return f"{self.title} @ {self.title} on {self.venue.name}"
+
+    def get_absolute_url(self):
+        """Get url after user adds/edits event"""
+        return reverse('event_detail', args=(self.pk,))
         
