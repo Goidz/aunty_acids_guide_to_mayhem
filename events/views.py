@@ -20,8 +20,10 @@ def create_event(request):
             add_event_form.save()
             event = add_event_form
             form.save_m2m()
-            messages.success(request, "Hooray! Event was sent successfully!")
-            return HttpResponseRedirect(reverse('event_detail', args=(event.pk,)))
+            messages.success(
+                request, "Hooray! Event was sent successfully!")
+            return HttpResponseRedirect(
+                reverse('event_detail', args=(event.pk,)))
         else:
             messages.error(
                 request, "Invalid, incorrect info.")
@@ -32,34 +34,36 @@ def create_event(request):
 
 
 """Got guidance with edit and delete from Alison O'Keeffe:
-https://github.com/AliOKeeffe/PP4_My_Meal_Planner"""
+    https://github.com/AliOKeeffe/PP4_My_Meal_Planner"""
+
+
 class UpdateEvent(
         LoginRequiredMixin, UserPassesTestMixin,
         SuccessMessageMixin, generic.UpdateView
         ):
-    """This view is used to allow logged in users to edit their own recipes"""
+    """This view is used to allow logged in users to edit their own events"""
     model = Event
     form_class = EventForm
-    template_name = 'update_event.html'
+    template_name = "update_event.html"
     success_message = "%(calculated_field)s was edited successfully"
 
     def form_valid(self, form):
         """
         This method is called when valid form data has been posted.
-        The signed in user is set as the author of the recipe.
+        The signed in user is set as the author of the event.
         """
         form.instance.author = self.request.user
         return super().form_valid(form)
 
     def test_func(self):
         """
-        Prevent another user from updating other's recipes
+        Prevent another user from updating other's events.
         """
         event = self.get_object()
         return event.author == self.request.user
 
     def get_success_message(self, cleaned_data):
-        """Override the get_success_message() method 
+        """Override the get_success_message() method
         to add the event title into the success message.
         """
         return self.success_message % dict(
@@ -68,23 +72,22 @@ class UpdateEvent(
         )
 
 
-
 class DeleteEvent(
         LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     """Allow logged in users to delete their own events"""
     model = Event
-    template_name = 'delete_event.html'
+    template_name = "delete_event.html"
     success_message = "Event deleted successfully"
-    success_url = reverse_lazy('user_events')
+    success_url = reverse_lazy("user_events")
 
     def test_func(self):
         """Prevent other users deleting other's events"""
         event = self.get_object()
         return event.author == self.request.user
-    
+
     def get_success_url(self):
-        messages.success(self.request, " Event deleted successfully")
-        return reverse_lazy('user_events')
+        messages.success(self.request, "Event deleted successfully")
+        return reverse_lazy("user_events")
 
 
 def event_list(request):

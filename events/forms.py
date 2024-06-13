@@ -3,7 +3,6 @@ from .models import Event
 
 
 class EventForm(forms.ModelForm):
-   
     """ Create Event Form """
     def __init__(self, *args, **kwargs):
         super(EventForm, self).__init__(*args, **kwargs)
@@ -11,8 +10,9 @@ class EventForm(forms.ModelForm):
     class Meta:
         model = Event
         """Get Event model, choose fields to display"""
-        
-        fields = ("title", "details", "city", "venue", "genres", "date", "my_link")
+
+        fields = ("title", "details", "city", "venue",
+                  "genres", "date", "my_link")
         widgets = {
             # Found assistance on date inputs from:
             # https://stackoverflow.com/questions/
