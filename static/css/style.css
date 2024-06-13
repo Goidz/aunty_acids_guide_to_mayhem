@@ -5,7 +5,7 @@
 }
 
 body{ /* Google Fonts: https://fonts.google.com/?query=major+mono */
-    font-family: Major Mono Display, sans-serif;
+    font-family: "Major Mono Display", "sans-serif";
     display: flex;
     flex-shrink: 0 !important;
     flex-direction: column;
@@ -69,6 +69,9 @@ nav{
   text-align: center;
 }
 
+#message_shown{
+}
+
 /* Search Field  ------------------------------------------------------------------>>>> */
 
 #search_genre{
@@ -88,15 +91,15 @@ nav{
   color:rgb(104, 218, 222);
   background-color: rgba(20, 45, 56, 0.75);
   border-radius: 0 3px 3px 0;
-    &:hover {
-      background-color: rgba(20, 45, 56, 0.75);
-      color: rgb(104, 218, 222);
-    }
-    &:active {
-      box-shadow: 0px 0px 12px 0px rgb(104, 218, 222);
-    }
-    &:focus {
-      outline: 0;
+  &:hover {
+    background-color: rgba(20, 45, 56, 0.75);
+    color: rgb(104, 218, 222);
+  }
+  &:active {
+    box-shadow: 0px 0px 12px 0px rgb(104, 218, 222);
+  }
+  &:focus {
+    outline: 0;
   }
 }
 

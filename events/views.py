@@ -6,8 +6,9 @@ from django.contrib import messages
 from .forms import EventForm
 from .models import Event, Genre, City
 
-"""Creating an event"""
+
 def create_event(request):
+    """Creating an event"""
     if request.method == "POST":
         form = EventForm(request.POST)
         if form.is_valid():
@@ -25,10 +26,8 @@ def create_event(request):
     return render(request, "create_event.html", context)
 
 
-"""
-Retrieving and filtering for events.
-"""
 def event_list(request):
+    """Retrieving and filtering for events."""
     event_list = Event.objects.all()
     searched_by = ""
     if request.POST:
@@ -37,22 +36,21 @@ def event_list(request):
         if (genre_filter > -1):
             selected_genre = Genre.objects.get(id=genre_filter)
             event_list = event_list.filter(genres__in=[selected_genre])
-            searched_by =f"Genre: {selected_genre.name}"
+            searched_by = f"Genre: {selected_genre.name}"
         if (city_filter > -1):
             selected_city = City.objects.get(id=city_filter)
             event_list = event_list.filter(city=selected_city)
-            searched_by +=f" City: {selected_city.name}"
+            searched_by += f" City: {selected_city.name}"
     genre_list = Genre.objects.all()
     city_list = City.objects.all()
     template = "home.html"
-    context = {"event_list": event_list, "genre_list": genre_list, "city_list": city_list, "searched_by": searched_by}
+    context = {"event_list": event_list, "genre_list": genre_list,
+               "city_list": city_list, "searched_by": searched_by}
     return render(request, template, context)
 
 
-"""
-Adding events to User Page.
-"""
 def user_events(request):
+    """Adding events to User Page."""
     user_events = Event.objects.filter(author=request.user)
     template = "user.html"
     context = {"user_events": user_events}
@@ -60,5 +58,6 @@ def user_events(request):
 
 
 class EventInfo(DetailView):
+    """Show event info"""
     model = Event
     template_name = "events_info.html"

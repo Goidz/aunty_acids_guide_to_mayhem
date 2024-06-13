@@ -23,10 +23,9 @@ from events import views
 
 urlpatterns = [
     path("account/", include('allauth.urls')),
-    path("", (views.event_list), name= "home"),
-    path("events/", include("events.urls"), name= "event-urls"),
-    path("user/", include("user.urls"), name= "user_events"),
+    path("", (views.event_list), name="home"),
+    path("events/", include("events.urls"), name="event-urls"),
+    path("user/", include("user.urls"), name="user_events"),
     path("summernote", include("django_summernote.urls")),
     path("admin/", admin.site.urls),
 ]
- 

@@ -11,7 +11,6 @@ class City(models.Model):
         """To display the cities by created_on in descending order"""
         ordering = ["name", "-created_on"]
 
-
     def __str__(self):
         return f"{self.name}"
 
@@ -22,9 +21,9 @@ class Genre(models.Model):
     created_on = models.DateTimeField(auto_now=True)
 
     class Meta:
-        """To display the genres by created_on in descending order alphabetically"""
+        """To display the genres by created_on
+        in descending order alphabetically"""
         ordering = ["name", "-created_on"]
-
 
     def __str__(self):
         return f"{self.name}"
@@ -39,21 +38,24 @@ class Venue(models.Model):
         """To display the venues by name in alphabetical order"""
         ordering = ["name"]
 
-
     def __str__(self):
         return f"{self.name}"
 
-    """Model for Event"""
+
 class Event(models.Model):
+    """Model for Event"""
     title = models.TextField(max_length=100, unique=True)
     details = models.TextField(max_length=300)
-    city = models.ForeignKey(City, related_name="city", on_delete=models.DO_NOTHING)
-    venue = models.ForeignKey(Venue, related_name="venue", on_delete=models.DO_NOTHING)
+    city = models.ForeignKey(
+        City, related_name="city", on_delete=models.DO_NOTHING)
+    venue = models.ForeignKey(
+        Venue, related_name="venue", on_delete=models.DO_NOTHING)
     genres = models.ManyToManyField(Genre, related_name="genres")
     date = models.DateField()
     created_on = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="events", blank=True, null=True)
+        User, on_delete=models.CASCADE,
+        related_name="events", blank=True, null=True)
     my_link = models.URLField("Add a Website", blank=True)
 
     def __str__(self):

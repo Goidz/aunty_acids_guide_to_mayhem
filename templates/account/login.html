@@ -8,12 +8,12 @@
 {% block content %}
 
 <div id="login_page" class="container">
-  <br/>
-      <h1 class="page-title">{% trans "Log in" %}</h1>
-      <hr class="home-break">
-      <p class="text-center mt-3">{% blocktrans %}
-        Don't have an account?
-        <a href="{{ signup_url }}" class="text-light"><u>Sign up</u></a>{% endblocktrans %}</p>
+  <br />
+  <h1 class="page-title">{% trans "Log in" %}</h1>
+  <hr class="home-break">
+  <p class="text-center mt-3">{% blocktrans %}
+    Don't have an account?
+    <a href="{{ signup_url }}" class="text-light"><u>Sign up</u></a>{% endblocktrans %}</p>
   <div class="row justify-content-center">
     <div class="col-12 col-md-6 col-lg-4 mb-4">
       <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -29,4 +29,4 @@
   </div>
 </div>
 
-    {% endblock %}
+{% endblock %}
